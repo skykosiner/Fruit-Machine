@@ -1,5 +1,5 @@
-from random import *
-from time import *
+from random import choice
+from time import sleep
 
 print("Fruit Machine")
 
@@ -7,9 +7,12 @@ reel = ["cherry", "bell", "lemmon"]
 amountOfTimes = int(0)
 
 money = int(input("please enter money "))
-money = money
+if money != int:
+    print("Sorry please make sure to eneter a number")
+# To change is looping or not
 looping = True
 numberGoes = int(1)
+windings = int(0)
 
 while looping:
     # Get random item from reel array and store it in a variole
@@ -31,12 +34,23 @@ while looping:
     numberGoes = numberGoes + 1
     # Check if user has run out of money
     if money == 0:
-        print("Sorry you have run out of money pay for more or play again later")
-        looping = False
+        print(
+            "Sorry you have run out of money : ( \npay more money for more goes or play again later")
+        print()
+        print()
+        again = input("play again y/n ")
+        if again.lower() == "y":
+            looping = True
+        else:
+            looping = False
     # If user gets all three slots in the row
     if reel1 == reel2 and reel1 == reel3:
         print("Jackpot")
         sleep(2)
         print()
         print()
-        looping = False
+        again = input("play again y/n ")
+        if again.lower() == "y":
+            looping = True
+        else:
+            looping = False
