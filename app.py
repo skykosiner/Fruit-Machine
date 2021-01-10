@@ -35,7 +35,7 @@ while looping:
     # Check if user has run out of money
     if money == 0:
         print(
-            "Sorry you have run out of money : ( \npay more money for more goes or play again later")
+            "Sorry you have run out of money : ( \npay moe money for more goes or play again later")
         print()
         print()
         again = input("play again y/n ")
