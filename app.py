@@ -7,12 +7,23 @@ reel = ["cherry", "bell", "lemmon"]
 amountOfTimes = int(0)
 
 money = int(input("please enter money "))
-if money != int:
-    print("Sorry please make sure to eneter a number")
+if money != int or money == 0:
+    print("Sorry please make sure to eneter a number higher then 1")
+    looping = False
+else:
+    looping = True
 # To change is looping or not
-looping = True
 numberGoes = int(1)
 windings = int(0)
+
+# if user wants to play again
+
+
+def playAgain():
+    numberGoes = int(1)
+    money = int(input("please enter money "))
+    looping = True
+
 
 while looping:
     # Get random item from reel array and store it in a variole
@@ -40,9 +51,7 @@ while looping:
         print()
         again = input("play again y/n ")
         if again.lower() == "y":
-            looping = True
-        else:
-            looping = False
+            playAgain()
     # If user gets all three slots in the row
     if reel1 == reel2 and reel1 == reel3:
         print("Jackpot")
@@ -51,6 +60,4 @@ while looping:
         print()
         again = input("play again y/n ")
         if again.lower() == "y":
-            looping = True
-        else:
-            looping = False
+            playAgain()
