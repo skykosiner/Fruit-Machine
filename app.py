@@ -1,35 +1,35 @@
 from random import choice
 from time import sleep
 
+true = True
+false = False
+none = None
+
 print("Fruit Machine")
 
-reel = ["cherry", "bell", "lemmon"]
+reel = ["cherry", "bell", "lemmon", "grape"]
 amountOfTimes = int(0)
 
 money = int(input("please enter money "))
-if money != int or money == 0:
-    print("Sorry please make sure to eneter a number higher then 1")
-    looping = False
-else:
-    looping = True
 # To change is looping or not
+lopping = true
 numberGoes = int(1)
-windings = int(0)
+credit = int(0)
+
 
 # if user wants to play again
-
-
 def playAgain():
-    numberGoes = int(1)
+    money = none
     money = int(input("please enter money "))
-    looping = True
+    lopping = true
 
 
-while looping:
+while lopping:
     # Get random item from reel array and store it in a variole
     reel1 = choice(reel)
     reel2 = choice(reel)
     reel3 = choice(reel)
+    reel4 = choice(reel)
 
     # Take one away from money variole
     money = money - 1
@@ -38,7 +38,7 @@ while looping:
     # Print the amount of goes you have had
     print("You have had (%d) attempts" % numberGoes)
     # Print the results
-    print(reel1 + " "+reel2+" "+reel3)
+    print(reel1 + " "+reel2+" "+reel3 + " "+reel4)
     # Wait two seconds
     sleep(2)
     # Change the number of goes to plus one
@@ -46,18 +46,28 @@ while looping:
     # Check if user has run out of money
     if money == 0:
         print(
-            "Sorry you have run out of money : ( \npay moe money for more goes or play again later")
+            "Sorry you have run out of money : ( \npay more money for more goes or play again later")
         print()
         print()
+        lopping = "false"
         again = input("play again y/n ")
         if again.lower() == "y":
             playAgain()
+            numberGoes = int(1)
+        else:
+            lopping = "false"
     # If user gets all three slots in the row
-    if reel1 == reel2 and reel1 == reel3:
+    if reel1 == reel2 and reel1 == reel3 and reel1 == reel4:
         print("Jackpot")
+        credit = credit + 1
+        print(credit)
         sleep(2)
         print()
         print()
+        lopping = "false"
         again = input("play again y/n ")
         if again.lower() == "y":
             playAgain()
+            numberGoes = int(1)
+        else:
+            lopping = "false"
